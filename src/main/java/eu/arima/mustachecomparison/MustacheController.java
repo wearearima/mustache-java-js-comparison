@@ -29,39 +29,10 @@ public class MustacheController {
 		List<Todo> todoList = new ArrayList<>();
 		
 		for (int i = 0; i < size; i++) {
-			todoList.add(new Todo(i, "name-" + i, new Date()));
+			todoList.add(new Todo(i, "name-" + i));
 		}
 		
 		return todoList;
 	}
-	
-	public static final class Todo {
-		
-		private final long id;
-		
-		private final String name;
-		
-		private final Date dueDate;
-
-		public Todo(long id, String name, Date dueDate) {
-			this.id = id;
-			this.name = name;
-			this.dueDate = dueDate;
-		}
-
-		public long getId() {
-			return id;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public Date getDueDate() {
-			return dueDate;
-		}
-		
-	}
-	
 	
 }
