@@ -68,12 +68,12 @@ public class MustacheVersionTests {
 			"</html>";
 	
 	@Test
-	public void oldEngine() {
+	public void engine_0_8_2() {
 		doTest("META-INF/resources/webjars/mustachejs/0.8.2/mustache.js");
 	}
 	
 	@Test
-	public void newEngine() {
+	public void engine_2_3_0() {
 		doTest("META-INF/resources/webjars/mustache/2.3.0/mustache.js");
 	}
 	
