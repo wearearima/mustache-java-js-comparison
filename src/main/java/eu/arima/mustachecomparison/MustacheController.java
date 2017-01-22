@@ -11,11 +11,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MustacheController {
+	
+	@GetMapping("javascript")
+	public String javaccript(Model model, @RequestParam(value = "size", defaultValue = "10") int size) {
+		model.addAttribute("title", "Using javascript");
+		model.addAttribute(createTodoList(size));
+		return "javascript/todoList";
+	}
 
 	@GetMapping("java")
 	public String java(Model model, @RequestParam(value = "size", defaultValue = "10") int size) {
 		model.addAttribute(createTodoList(size));
-		return "todoList";
+		return "java/todoList";
 	}
 	
 	private static List<Todo> createTodoList(int size) {
