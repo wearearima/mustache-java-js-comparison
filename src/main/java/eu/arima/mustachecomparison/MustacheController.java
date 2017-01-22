@@ -1,7 +1,6 @@
 package eu.arima.mustachecomparison;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -13,16 +12,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MustacheController {
 	
 	@GetMapping("javascript")
-	public String javaccript(Model model, @RequestParam(value = "size", defaultValue = "10") int size) {
-		model.addAttribute("title", "Using javascript");
-		model.addAttribute(createTodoList(size));
-		return "javascript/todoList";
+	public String javascript(Model model, @RequestParam(value = "size", defaultValue = "10") int size) {
+		return handleRequest(model, size, "javascript");
 	}
 
 	@GetMapping("java")
 	public String java(Model model, @RequestParam(value = "size", defaultValue = "10") int size) {
+		return handleRequest(model, size, "java");
+	}
+	
+	private String handleRequest(Model model, int size, String type) {
+		model.addAttribute("title", "Todo list");
 		model.addAttribute(createTodoList(size));
-		return "java/todoList";
+		return type + "/todoList";
 	}
 	
 	private static List<Todo> createTodoList(int size) {
