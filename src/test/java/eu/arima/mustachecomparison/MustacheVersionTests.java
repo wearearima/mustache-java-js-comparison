@@ -22,6 +22,7 @@ public class MustacheVersionTests {
 			"        <title>{{title}}</title>\n" +
 			"    </head>\n" +
 			"    <body>\n" +
+			"        <p>{{todo.name}}</p>\n" +
 			"        <table>\n" +
 			"            <thead>\n" + 
 			"                <tr>\n" +
@@ -46,6 +47,7 @@ public class MustacheVersionTests {
 			"        <title>Todo List</title>\n" +
 			"    </head>\n" +
 			"    <body>\n" +
+			"        <p>unique-todo</p>\n" +			
 			"        <table>\n" +
 			"            <thead>\n" + 
 			"                <tr>\n" +
@@ -83,6 +85,7 @@ public class MustacheVersionTests {
 		
 		Map<String, Object> params = new HashMap<>();
 		params.put("title", "Todo List");
+		params.put("todo", new Todo(10, "unique-todo"));
 		params.put("todoList", Arrays.asList(new Todo(1, "name-1"), new Todo(2, "name-2")));
 		
 		try {
